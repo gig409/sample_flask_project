@@ -16,5 +16,23 @@
 
     <h1>Homepage</h1>
     <img src="../static/images/kit.gif" >
+     <p>
+    {% if trainer_name %}
+    The trainer is called {{ trainer_name }}
+    You like Nike {{ nike_boolean }}
+
+    {% else %}
+    Please enter a trainer:
+    {% endif %}
+    </p>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.trainer_name.label }} {{ form.trainer_name() }}
+        <br>
+        {{ form.nike_boolean.label }} {{ form.nike_boolean() }}
+        <br>
+        {{ form.trainer_choice.label }} {{ form.trainer_choice() }}
+        {{ form.submit() }}
+    </form>
 </body>
 </html>
